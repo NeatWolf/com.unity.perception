@@ -73,10 +73,11 @@ namespace GroundTruthTests
             var label = "label";
             var labelingConfiguration = ScriptableObject.CreateInstance<LabelingConfiguration>();
 
-            labelingConfiguration.LabelingConfigurations = new List<LabelingConfigurationEntry>
+            labelingConfiguration.LabelEntries = new List<LabelEntry>
             {
-                new LabelingConfigurationEntry
+                new LabelEntry
                 {
+                    id = 1,
                     label = label,
                     value = 500
                 }
@@ -94,7 +95,7 @@ namespace GroundTruthTests
 
             var perceptionCamera = cameraObject.AddComponent<PerceptionCamera>();
             perceptionCamera.produceSegmentationImages = false;
-            perceptionCamera.produceVisiblePixelsMetric = false;
+            perceptionCamera.produceRenderedObjectInfoMetric = false;
             perceptionCamera.produceBoundingBoxAnnotations = false;
             perceptionCamera.produceObjectCountAnnotations = false;
             perceptionCamera.captureRgbImages = false;
