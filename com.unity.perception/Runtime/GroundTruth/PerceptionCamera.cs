@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
@@ -90,8 +90,8 @@ namespace UnityEngine.Perception.GroundTruth
         /// </summary>
         public LabelingConfiguration LabelingConfiguration;
 
-        // [SerializeReference]
-        // public List<Labeler> labelers = new List<Labeler>();
+        [SerializeReference]
+        public List<CameraLabeler> labelers = new List<CameraLabeler>();
 
         /// <summary>
         /// Invoked when RenderedObjectInfos are calculated. The first parameter is the Time.frameCount at which the objects were rendered. This may be called many frames after the frame in which the objects were rendered.
@@ -703,5 +703,11 @@ namespace UnityEngine.Perception.GroundTruth
                 return AsyncRequest.Result.Completed;
             });
         }
+    }
+
+    [Serializable]
+    public abstract class CameraLabeler
+    {
+
     }
 }
